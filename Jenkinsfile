@@ -39,7 +39,7 @@ pipeline {
                           "files": [
                             {
                               "pattern": "jarstaging/(*)",
-                              "target": "sunny-libs-release-local/{1}",
+                              "target": "tweet-libs-snapshot-libs-release/{1}",
                               "flat": "false",
                               "props" : "${properties}",
                               "exclusions": [ "*.sha1", "*.md5"]
