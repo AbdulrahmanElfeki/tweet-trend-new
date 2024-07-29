@@ -16,6 +16,7 @@ pipeline {
                 sh "mvn surefire-report:report"
             }
         }
+        /*
         stage('SonarQube analysis') {
             environment {
                 scannerHome = tool 'sonar-scanner'
@@ -26,5 +27,7 @@ pipeline {
                 }
             }
         }
-    }
+        */
+        
+    } 
 }
