@@ -57,12 +57,14 @@ pipeline {
                 }   
         }
         stage("Docker build"){
-            steps {
+        steps {
             script {
                     echo '<--------------- Docker Build Started --------------->'
                     app = docker.build(imageName+":"+version)
                     echo '<--------------- Docker Build Ended --------------->'  
                     }
+                }
+        }
         stage("Docker build"){
             steps {
             script {
@@ -70,6 +72,8 @@ pipeline {
                     docker.withRegistry(registry,"b0158021-18c0-41d6-afba-b56634b0b2fc")
                     echo '<--------------- Docker Publish Ended --------------->'  
                     }       
+                }
+            }
     } 
 }
 
