@@ -65,7 +65,7 @@ pipeline {
                     }
                 }
         }
-        stage("Docker build"){
+        stage("Docker publish"){
             steps {
             script {
                     echo '<--------------- Docker Publish Started --------------->'
