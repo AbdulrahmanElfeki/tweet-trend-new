@@ -1,7 +1,3 @@
-jfrog Artifactory URL: https://abdulrahmanelfeki.jfrog.io/
-Artifact location: /home/ec2-user/jenkins/workspace/tweet-trend-multibranch_main/jarstaging/com/valaxy/demo-workshop/2.1.3
-credentials: 601e4cb3-6dcc-4b2a-8175-74c666619afe
-
 def registry = "https://abdulrahmanelfeki.jfrog.io/"
 pipeline {
     agent { label 'maven' }
