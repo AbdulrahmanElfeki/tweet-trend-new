@@ -1,5 +1,4 @@
 def registry = "https://abdulrahmanelfeki.jfrog.io/"
-credentials: 
 pipeline {
     agent { label 'maven' }
 
@@ -36,13 +35,13 @@ pipeline {
                     def server = Artifactory.newServer url:registry+"artifactory", credentialsId:"601e4cb3-6dcc-4b2a-8175-74c666619afe"
                     def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                     def uploadSpec = """{
-                        "files":[
+                        "files": [
                             {
                             "pattern":"jarstaging/(*)",
                             "target":"libs-release-local/{1}",
                             "flat":"false",
                             "props":"${properties}",
-                            "exclusions": ["*.md5","*.sha1"]
+                            "exclusions": ["*.sha1", "*.md5"]
                             }
                         ]
                     }"""
@@ -54,3 +53,4 @@ pipeline {
         }
     } 
 }
+
