@@ -1,4 +1,6 @@
 def registry = "https://abdulrahmanelfeki.jfrog.io/"
+def imageName = "https://abdulrahmanelfeki.jfrog.io/tweet-docker-local/tweet"
+def version = "2.1.3"
 pipeline {
     agent { label 'maven' }
 
@@ -53,7 +55,21 @@ pipeline {
             
                     }
                 }   
-        }   
+        }
+        stage("Docker build"){
+            steps {
+            script {
+                    echo '<--------------- Docker Build Started --------------->'
+                    app = docker.build(imageName+":"+version)
+                    echo '<--------------- Docker Build Ended --------------->'  
+                    }
+        stage("Docker build"){
+            steps {
+            script {
+                    echo '<--------------- Docker Publish Started --------------->'
+                    docker.withRegistry(registry,"b0158021-18c0-41d6-afba-b56634b0b2fc")
+                    echo '<--------------- Docker Publish Ended --------------->'  
+                    }       
     } 
 }
 
