@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: valaxy-rtp-service
-  namespace: valaxy
+  namespace: tweet
 spec:
   type: NodePort
   selector:
