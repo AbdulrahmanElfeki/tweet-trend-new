@@ -79,7 +79,7 @@ pipeline {
         stage("Deploy"){
             steps{
                 script{
-                    sh './deploy.sh'
+                    sh 'helm install tweet-v1 tweet-0.1.0.tgz '
                 }
             }
         }
