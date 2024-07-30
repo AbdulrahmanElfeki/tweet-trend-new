@@ -69,7 +69,7 @@ pipeline {
             steps {
             script {
                     echo '<--------------- Docker Publish Started --------------->'
-                    docker.withRegistry(registry,"b0158021-18c0-41d6-afba-b56634b0b2fc"){
+                    docker.withRegistry(registry,"jforgcred-docker"){
                         app.push()
                     }
                     echo '<--------------- Docker Publish Ended --------------->'  
