@@ -35,7 +35,7 @@ pipeline {
         steps {
             script {
                     echo '<--------------- Jar Publish Started --------------->'
-                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"b0158021-18c0-41d6-afba-b56634b0b2fc"
+                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"jenkins-jforg"
                      def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                      def uploadSpec = """{
                           "files": [
