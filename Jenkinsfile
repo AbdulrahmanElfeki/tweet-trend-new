@@ -35,7 +35,7 @@ pipeline {
         steps {
             script {
                     echo '<--------------- Jar Publish Started --------------->'
-                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"jenkins-jforg"
+                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"jfrog-cred"
                      def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                      def uploadSpec = """{
                           "files": [
@@ -69,7 +69,7 @@ pipeline {
             steps {
             script {
                     echo '<--------------- Docker Publish Started --------------->'
-                    docker.withRegistry(registry,"jenkins-jforg"){
+                    docker.withRegistry(registry,"jfrog-cred"){
                         app.push()
                     }
                     echo '<--------------- Docker Publish Ended --------------->'  
