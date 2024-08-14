@@ -31,6 +31,7 @@ pipeline {
             }
         }
         */
+        /*
         stage("Jar Publish") {
         steps {
             script {
@@ -56,6 +57,8 @@ pipeline {
                     }
                 }   
         }
+        */
+        /*
         stage("Docker build"){
         steps {
             script {
@@ -65,6 +68,8 @@ pipeline {
                     }
                 }
         }
+        */
+        /*
         stage("Docker publish"){
             steps {
             script {
@@ -76,6 +81,7 @@ pipeline {
                     }       
                 }
             }
+        */
         stage("Deploy"){
             steps{
                 script{
