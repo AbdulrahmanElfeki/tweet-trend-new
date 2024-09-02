@@ -1,4 +1,4 @@
-# CI/CD using jenkins for java web app.
+ # CI/CD using jenkins for java web app.
 This repository contains everything you need to set up continuous integration and continuous deployment for your application.
 
 ## Table of Contents
@@ -25,17 +25,19 @@ To get started, follow these steps:
 `git clone https://github.com/yourusername/tweet-trend-new`
 2. Deploy infrastructure using terraform.
 ```
-$ cd tweet-trend-new/terraform
+$ cd tweet-trend-new/terraform/vpc
 $ terraform init # download the necessary Terraform plugins
 $ terraform plan #  preview the changes that Terraform plans to make to your infrastructure.
 $ terraform apply --auto-approve # deploy your infrastructure.
 ```
 3. Automate Depdendencies installation using Ansible.
 ```
-$ yum install -y ansible
-$ ansible-playbook -i /opt/hosts /opt/playbook-jenkins.yml
-$ ansible-playbook -i /opt/hosts /opt/playbook-jenkins-slave.yml
+$ ssh -i <AWS-ACCESS-KEY> ec2-user@<MACHINE-PUBLIC-IP>
+$ sudo yum install -y ansible
+$ sudo ansible-playbook -i /opt/hosts /opt/playbook-jenkins.yml
+$ sudo ansible-playbook -i /opt/hosts /opt/playbook-jenkins-slave.yml
 ```
+
 
 
 
