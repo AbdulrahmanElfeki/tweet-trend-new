@@ -1,0 +1,35 @@
+---
+- hosts: jenkins_slave
+  become: true
+  tasks:
+  - name: install java
+    yum:
+      name: java-17-amazon-corretto
+      state: present
+  - name: dowmload maven packages
+    get_url:
+      url: https://dlcdn.apache.org/maven/maven-3/3.9.8/binaries/apache-maven-3.9.8-bin.tar.gz
+      dest: /opt
+  - name: extract maven packages
+    unarchive:
+      src: /opt/apache-maven-3.9.8-bin.tar.gz
+      dest: /opt
+      remote_src: yes
+  - name: install docker
+    yum:
+      name: docker
+      state: present
+  - name: start & enable docker services
+    service:
+      name: docker
+      state: started
+      enabled: yes
+  - name: give full permission on /var/run/docker.sock
+    file:
+      path: /var/run/docker.socke
+      state: file
+      mode: 777
+  - name: Install
+    yum:
+      name: git 
+      state: present
