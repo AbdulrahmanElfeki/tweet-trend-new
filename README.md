@@ -30,7 +30,15 @@ $ terraform init # download the necessary Terraform plugins
 $ terraform plan #  preview the changes that Terraform plans to make to your infrastructure.
 $ terraform apply --auto-approve # deploy your infrastructure.
 ```
-3. 
+3. Automate Depdendencies installation using Ansible.
+```
+$ yum install -y ansible
+$ ansible-playbook -i /opt/hosts /opt/playbook-jenkins.yml
+$ ansible-playbook -i /opt/hosts /opt/playbook-jenkins-slave.yml
+```
+
+
+
 Usage
 Setting Up CI/CD
 Create a .gitlab-ci.yml file in your project root.
@@ -44,9 +52,6 @@ Configuration
 Environment Variables
 API_KEY: Your secret API key for external services.
 DATABASE_URL: Connection string for your database.
-…
-Secrets Management
-We use HashiCorp Vault to manage secrets securely. Refer to our Vault Integration Guide for details.
 
 Deployment
 Environments
