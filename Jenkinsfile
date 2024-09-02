@@ -1,13 +1,9 @@
-def registry = "https://abdulrahmanelfeki.jfrog.io/"
-def imageName = "abdulrahmanelfeki.jfrog.io/tweet-docker-local/tweet"
-def version = '2.1.3'
 pipeline {
     agent { label 'maven' }
 
     environment {
         PATH = "/opt/apache-maven-3.9.8/bin:$PATH"
     }
-
     stages {
         stage('build') {
             steps {
@@ -19,7 +15,6 @@ pipeline {
                 sh "mvn surefire-report:report"
             }
         }
-        /*
         stage('SonarQube analysis') {
             environment {
                 scannerHome = tool 'sonar-scanner'
@@ -30,8 +25,6 @@ pipeline {
                 }
             }
         }
-        /*
-        /*
         stage("Jar Publish") {
         steps {
             script {
@@ -57,8 +50,6 @@ pipeline {
                     }
                 }   
         }
-        /*
-        /*
         stage("Docker build"){
         steps {
             script {
@@ -68,8 +59,6 @@ pipeline {
                     }
                 }
         }
-        */
-        /*
         stage("Docker publish"){
             steps {
             script {
@@ -81,8 +70,6 @@ pipeline {
                     }       
                 }
             }
-        */
-        /*
         stage("Deploy"){
             steps{
                 script{
@@ -90,7 +77,6 @@ pipeline {
                 }
             }
         }
-        */
     } 
 }
 
