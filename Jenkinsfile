@@ -1,5 +1,5 @@
 def registry = "https://abdulrahmanelfeki123.jfrog.io/"
-def imageName = "abdulrahmanelfeki123.jfrog.io/artifactory/tweet-trend-docker/tweet"
+def imageName = "abdulrahmanelfeki123.jfrog.io/tweet-trend-docker/tweet"
 def version = '2.1.3'
 pipeline {
     agent { label 'maven' }
