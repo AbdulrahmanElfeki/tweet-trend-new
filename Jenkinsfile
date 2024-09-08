@@ -15,6 +15,7 @@ pipeline {
                 sh "mvn surefire-report:report"
             }
         }
+        /*
         stage('SonarQube analysis') {
             environment {
                 scannerHome = tool 'sonar-scanner'
@@ -25,6 +26,8 @@ pipeline {
                 }
             }
         }
+        /*
+        /*
         stage("Jar Publish") {
         steps {
             script {
@@ -48,8 +51,10 @@ pipeline {
                      echo '<--------------- Jar Publish Ended --------------->'  
             
                     }
-                }   
+                }
         }
+        /*
+        /*
         stage("Docker build"){
         steps {
             script {
@@ -59,6 +64,8 @@ pipeline {
                     }
                 }
         }
+        /*
+        /*
         stage("Docker publish"){
             steps {
             script {
@@ -70,6 +77,8 @@ pipeline {
                     }       
                 }
             }
+        /*
+        /*
         stage("Deploy"){
             steps{
                 script{
@@ -77,6 +86,7 @@ pipeline {
                 }
             }
         }
+        /*
     } 
 }
 
